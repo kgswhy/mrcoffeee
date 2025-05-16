@@ -2,71 +2,81 @@
 const orderForm = document.getElementById('orderForm');
 const totalPriceElement = document.getElementById('totalPrice');
 
-// Price configuration
+// Price configuration in Rupiah
 const prices = {
-    espresso: 3.99,
-    latte: 4.99,
-    'cold-brew': 4.49,
-    cappuccino: 4.29,
-    mocha: 4.79,
-    'extra-shot': 1.00,
-    'whipped-cream': 0.50,
-    'caramel-syrup': 0.50
+    espresso: 59000,
+    latte: 49000,
+    'cold-brew': 45000,
+    cappuccino: 43000,
+    mocha: 48000,
+    'extra-shot': 10000,
+    'whipped-cream': 5000,
+    'caramel-syrup': 5000
 };
+
+// Format price to Rupiah
+function formatRupiah(price) {
+    return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(price);
+}
 
 // Validation functions
 function validateName(name) {
     if (name.length < 2) {
-        return 'Name must be at least 2 characters long';
+        return 'Nama harus minimal 2 karakter';
     }
     if (name.length > 50) {
-        return 'Name must be less than 50 characters';
+        return 'Nama maksimal 50 karakter';
     }
     if (!/^[a-zA-Z\s]*$/.test(name)) {
-        return 'Name can only contain letters and spaces';
+        return 'Nama hanya boleh berisi huruf dan spasi';
     }
     return '';
 }
 
 function validateEmail(email) {
     if (!email.includes('@')) {
-        return 'Please enter a valid email address';
+        return 'Masukkan alamat email yang valid';
     }
     if (!email.includes('.')) {
-        return 'Please enter a valid email address';
+        return 'Masukkan alamat email yang valid';
     }
     if (email.length > 100) {
-        return 'Email must be less than 100 characters';
+        return 'Email maksimal 100 karakter';
     }
     return '';
 }
 
 function validatePhone(phone) {
     if (phone.length < 10) {
-        return 'Phone number must be at least 10 digits';
+        return 'Nomor telepon minimal 10 digit';
     }
     if (phone.length > 15) {
-        return 'Phone number must be less than 15 digits';
+        return 'Nomor telepon maksimal 15 digit';
     }
     if (!/^[0-9+\-() ]*$/.test(phone)) {
-        return 'Phone number can only contain numbers, +, -, (, ), and spaces';
+        return 'Nomor telepon hanya boleh berisi angka, +, -, (, ), dan spasi';
     }
     return '';
 }
 
 function validateAddress(address) {
     if (address.length < 10) {
-        return 'Please enter a complete address';
+        return 'Masukkan alamat lengkap';
     }
     if (address.length > 200) {
-        return 'Address must be less than 200 characters';
+        return 'Alamat maksimal 200 karakter';
     }
     return '';
 }
 
 function validateCoffee(coffee) {
     if (!coffee) {
-        return 'Please select a coffee';
+        return 'Silakan pilih kopi';
     }
     return '';
 }
@@ -88,7 +98,7 @@ function updateTotalPrice() {
         total += prices[addon.value];
     });
     
-    totalPriceElement.textContent = `$${total.toFixed(2)}`;
+    totalPriceElement.textContent = formatRupiah(total);
 }
 
 // Add event listeners for price updates
@@ -125,7 +135,7 @@ orderForm.addEventListener('submit', function(e) {
     // If no errors, submit the form
     if (!nameError && !emailError && !phoneError && !addressError && !coffeeError) {
         // Here you would typically send the form data to a server
-        alert('Order placed successfully! Thank you for choosing MR.COFFEE.');
+        alert('Pesanan berhasil! Terima kasih telah memilih MR.COFFEE.');
         orderForm.reset();
         updateTotalPrice();
     }

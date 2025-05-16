@@ -1,29 +1,29 @@
 // Reward button functionality
-const rewardButtons = document.querySelectorAll('.reward-btn');
-
-rewardButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const rewardType = this.dataset.reward;
-        showRewardModal(rewardType);
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all reward buttons
+    const rewardButtons = document.querySelectorAll('.reward-btn');
+    
+    // Add click event listener to each button
+    rewardButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const rewardType = this.getAttribute('data-reward');
+            showDownloadModal(rewardType);
+        });
     });
 });
 
-// Show reward modal
-function showRewardModal(rewardType) {
+function showDownloadModal(rewardType) {
     // Create modal element
     const modal = document.createElement('div');
-    modal.className = 'reward-modal';
+    modal.className = 'download-modal';
     
-    // Get reward details
-    const rewardDetails = getRewardDetails(rewardType);
-    
-    // Set modal content
+    // Create modal content
     modal.innerHTML = `
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>${rewardDetails.title}</h2>
-            <p>${rewardDetails.message}</p>
-            <div class="modal-buttons">
+            <h2>Download Our App</h2>
+            <p>To claim this reward, please download our mobile app</p>
+            <div class="app-buttons">
                 <a href="#" class="app-store-btn">
                     <img src="images/app-store.png" alt="Download on App Store">
                 </a>
@@ -42,7 +42,7 @@ function showRewardModal(rewardType) {
         modal.classList.add('show');
     }, 10);
     
-    // Close modal functionality
+    // Close modal when clicking close button
     const closeBtn = modal.querySelector('.close-modal');
     closeBtn.addEventListener('click', () => {
         modal.classList.remove('show');

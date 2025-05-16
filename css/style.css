@@ -571,7 +571,7 @@ body {
 
 .menu-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('../images/menu-hero.jpg') center/cover no-repeat;
+                url('../images/menu-bg.jpg') center/cover no-repeat;
     height: 40vh;
     display: flex;
     flex-direction: column;

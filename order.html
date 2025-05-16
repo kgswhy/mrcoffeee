@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - MR.COFFEE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">MR.COFFEE</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="rewards.html">Rewards</a>
+                <a href="about.html">About Us</a>
+                <a href="order.html" class="active order-btn">Order Now</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="order-page">
+        <section class="order-hero">
+            <h1>Place Your Order</h1>
+            <p>We'll bring the coffee shop experience to you</p>
+        </section>
+
+        <section class="order-form-section">
+            <div class="form-container">
+                <form id="orderForm" class="order-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" name="address" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Your Coffee</label>
+                        <select id="coffee" name="coffee" required>
+                            <option value="">Choose your coffee</option>
+                            <option value="espresso">Classic Espresso - $3.99</option>
+                            <option value="latte">Caramel Latte - $4.99</option>
+                            <option value="cold-brew">Cold Brew - $4.49</option>
+                            <option value="cappuccino">Cappuccino - $4.29</option>
+                            <option value="mocha">Mocha - $4.79</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Add-ons</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="addons" value="extra-shot">
+                                Extra Shot (+$1.00)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="addons" value="whipped-cream">
+                                Whipped Cream (+$0.50)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="addons" value="caramel-syrup">
+                                Caramel Syrup (+$0.50)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Special Instructions</label>
+                        <textarea id="notes" name="notes" placeholder="Any special requests?"></textarea>
+                    </div>
+
+                    <div class="form-group total-price">
+                        <label>Total Price</label>
+                        <span id="totalPrice">$0.00</span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Place Order</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MR.COFFEE</h3>
+                <p>Crafting moments, one cup at a time</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="menu.html">Menu</a>
+                <a href="rewards.html">Rewards</a>
+                <a href="about.html">About Us</a>
+                <a href="order.html">Order</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: hello@mrcoffee.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MR.COFFEE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/order.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html> 
